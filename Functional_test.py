@@ -1,5 +1,18 @@
+
 from selenium import webdriver
+
 import unittest
+from selenium.webdriver.common.by import By
+
+# from django.core.management.commands.runserver import Command as RunserverCommand
+
+# class Command(RunserverCommand):
+#     def handle(self, *args, **options):
+#         # Добавьте опцию для автоматического порта при запуске тестов
+#         if not options.get('addrport'):
+#             options['addrport'] = '8000'  # Здесь можно указать желаемый порт, если он свободен
+
+#         super().handle(*args, **options)
 
 
 class BasicInstallTest(unittest.TestCase):
@@ -22,8 +35,8 @@ class BasicInstallTest(unittest.TestCase):
     def test_home_page_header(self):
         # В шапке сайта написанно "Андрей Пяткин"
         browser = self.browser.get('http://localhost:8000')
-        header = browser.find_elements_by_tag_name('h1')[0]
-        self.assertIn('Андрея Пяткина', header)
+        header = self.browser.find_element(By.TAG_NAME, 'h1')
+        self.assertIn('Андрей Пяткин', header.text)
 
 
 if __name__ == '__main__':
