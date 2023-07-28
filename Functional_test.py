@@ -1,6 +1,4 @@
-
 from selenium import webdriver
-
 import unittest
 from selenium.webdriver.common.by import By
 
@@ -39,11 +37,25 @@ class BasicInstallTest(unittest.TestCase):
         self.assertIn('Андрей Пяткин', header.text)
 
 
+    def test_home_page_blog(self):
+        # В шапке сайта расположен блог  со статьям.
+        self.browser.get('http://localhost:8000')
+        artical_list = self.browser.find_element(By.CLASS_NAME, 'artical-list')
+        self.assertTrue(artical_list)
+
+    def test_home_articles_look_correct(self):
+        # У каждой статьи есть заголовок и один обзац с текстом
+        self.browser.get('http://localhost:8000')
+        article_title = self.browser.find_element(By.CLASS_NAME, 'article_title')
+        article_summary = self.browser.find_element(By.CLASS_NAME,'article_summary')
+        self.assertTrue(article_title)
+        self.assertTrue(article_summary)
+
+
+
+
 if __name__ == '__main__':
     unittest.main()
-
-
-# В шапке сайта расположен блог  со статьям.
 
 # У каждой статьи есть заголовок и один обзац с текстом
 
@@ -53,3 +65,7 @@ if __name__ == '__main__':
 
 # Проичитав статью Вася кликнул по тексту "Андрей Пяткин" в шапке сайта
 # Попал обратно на главную страницу
+
+# Некоторые статьи есть в админке, но они не опублекованны
+
+# Статьи отркываються с красивым коротким адресом 
