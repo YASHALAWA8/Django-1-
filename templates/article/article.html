@@ -1,0 +1,17 @@
+
+{% extends 'base.html' %}
+
+{% block title %}Сайт Андрея Пяткина{% endblock %}
+
+{% block content %}
+<div class="container">
+    {% for a in article %}
+    <div>
+        <h1 class="bg-success text-white">{{ a.title }}</h1>
+        <pre>{{ a.sumary }}</pre>
+        <p>{{ a.full_text|linebreaks }}</p>
+        <p>Дата публикации: {{ a.pubdate|date:"d F Y в H:i" }}</p>
+    </div>
+    {% endfor %}
+</div>
+{% endblock %}

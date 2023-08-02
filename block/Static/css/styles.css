@@ -1,0 +1,45 @@
+/* Change font for <h1> elements */
+.profile {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  font-family: "Arial", sans-serif;
+}
+
+.profile img {
+  width: 150px;
+  height: 150px;
+}
+
+.profile p {
+  font-size: 18px;
+  font-weight: bold;
+}
+
+h1 {
+  font-family: "Time New Roman", sans-serif;
+  font-size: 28px;
+  font-weight: bold;
+  color: floralwhite;
+  font-style: italic;
+}
+
+pre {
+  font-family: "Time New Roman", sans-serif;
+  font-size: 18px;
+  font-weight: bold;
+  color: floralwhite;
+}
+
+/* Change font for <p> elements */
+p {
+  font-family: "Time New Roman", sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: floralwhite;
+}
+
+body {
+  background-color: #5c361f;
+  /* Здесь #333 - это код цвета темно-серого. */
+}
