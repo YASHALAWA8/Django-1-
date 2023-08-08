@@ -1,15 +1,33 @@
-
 {% extends 'base.html' %}
 
+{% load static %}
+
 {% block title %}Сайт Андрея Пяткина{% endblock %}
+
+{% block img %}
+<div class="profile">
+    <img src="{% static 'css/images/travis.jpg' %}" alt="OneCactusJack">
+    <p>OneCactusJack</p>
+</div>
+{% endblock  %}
+
+
+{% block text %}
+<div class="text">
+    {% for t in text %}
+    <h1>{{ t.text|safe }}</h1>
+    {% endfor %}
+</div>
+{% endblock %}
+
 
 {% block content %}
 <div class="container">
     {% for a in article %}
     <div>
-        <h1 class="bg-success text-white">{{ a.title }}</h1>
-        <pre>{{ a.sumary }}</pre>
-        <p>{{ a.full_text|linebreaks }}</p>
+        <h1 class=>{{ a.title|safe }}</h1>
+        {% comment %} <pre>{{ a.sumary }}</pre> {% endcomment %}
+        <p>{{ a.full_text|safe|linebreaks }}</p>
         <p>Дата публикации: {{ a.pubdate|date:"d F Y в H:i" }}</p>
     </div>
     {% endfor %}

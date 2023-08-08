@@ -1,0 +1,9 @@
+{% extends 'base.html' %}
+
+{% block text %}
+<div class="text">
+    {% for t in texts %}
+    <h1>{{ t.text|safe }}</h1>
+    {% endfor %}
+</div>
+{% endblock %}

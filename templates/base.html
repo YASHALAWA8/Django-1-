@@ -11,11 +11,16 @@
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
 </head>
 <body>
-        <div class="profile">
-            <img src="{% static 'css/images/travis.jpg' %}" alt="OneCactusJack">
-        </div>
     <div class="container">
         <!-- Общий контент или разметка -->
+        {% block img %}
+        {% endblock  %}
+    </div>
+    <div class = "text">
+        {% block text %}
+        {% endblock  %}
+    </div>
+    <div>
         {% block content %}
         {% endblock %}
     </div>
