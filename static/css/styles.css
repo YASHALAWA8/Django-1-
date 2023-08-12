@@ -9,20 +9,56 @@
 .profile img {
   width: 100px;
   height: 100px;
-  border-radius: 50%;
-  overflow: hidden;
-  margin-right: 20px;
+  border-radius: 80%;
+  overflow: scroll;
+  margin-right: 0px;
+
+}
+/* Цвет текста OneCactusJack */
+:root {
+  --start-color: rgb(255, 111, 0);
+  --end-color: rgb(255, 255, 255);
+  --animation-duration: 5s;
+}
+
+.profile {
+  text-align: center;
+  padding: 0px;
+  position: relative;
 }
 
 .profile p {
   font-size: 14px;
   font-weight: bold;
   margin-top: 15px;
-  color: rgb(86, 86, 86);
-  transition: color 0.5s ease;
+  color: var(--start-color);
+  animation: colorChange var(--animation-duration) infinite alternate;
+  position: relative; /* Уберите свойство top */
+  left: 1%;
+  z-index: 2;
 }
-.profile p:hover {
-  color: #8c00ff; /* Цвет текста при наведении на него курсора */
+
+.profile p::before {
+  content: ''; /* Добавляем контент для псевдоэлемента */
+  display: block;
+  width: 150px;
+  height: 80px;
+  background-image: url('https://o.remove.bg/downloads/e0a4b028-35ff-470f-8a72-90cb03d051c1/1670827812_grizly-club-p-mazok-kisti-png-24-removebg-preview.png');
+  background-size: cover;
+  position: absolute;
+  bottom: -20px; /* Установите отрицательное значение, чтобы изображение поднялось выше текста */
+  left: 50%; /* Центрируем изображение горизонтально */
+  transform: translateX(-50%); /* Центрируем изображение по горизонтали */
+  z-index: -1;
+}
+
+@keyframes colorChange {
+  0% {
+    color: var(--start-color);
+  }
+  100% {
+    color: var(--end-color);
+  }
 }
 /* Стиль названия статьи */
 h1 {
@@ -37,7 +73,7 @@ pre {
   font-family: "Time New Roman", sans-serif;
   font-size: 18px;
   font-weight: bold;
-  color: floralwhite;
+  color: rgb(18, 18, 18);
 }
 
 /* Стиль основнго теста Full_text*/
@@ -45,9 +81,20 @@ p {
   font-family: "Time New Roman", sans-serif;
   font-size: 14px;
   line-height: 1.5;
-  color: floralwhite;
+  color: rgb(10, 10, 10);
 }
 /* Цвет фона */
 body {
-  background-color: #311e13;
+  margin: 0;
+  padding: 0;
+}
+.background1 {
+  background-image: url('https://i.ytimg.com/vi/0FVJA3RqOrE/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGIgZSgPMA8=&amp;rs=AOn4CLD2RRU56AmDNnS09LALsaHu-VdnMg');
+  height: 10.1vh;
+  background-position:center center;
+  background-size: cover;
+}
+.background2{
+ /* Масштабирование изображения для заполнения всего фона */
+  background-repeat: no-repeat; /* Запрет повторения изображения */
 }

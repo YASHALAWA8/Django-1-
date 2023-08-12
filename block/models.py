@@ -1,5 +1,6 @@
 from django.db import models
 from datetime import datetime
+from ckeditor.fields import RichTextField
 
 class Article(models.Model):
     title = models.CharField(max_length=255)
@@ -15,6 +16,6 @@ class Article(models.Model):
 
 class OtherText(models.Model):
     title = models.CharField(max_length=255, default='Unknown')
-    text = models.TextField()
+    text = RichTextField()
     def __str__(self):
         return self.title
