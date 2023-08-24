@@ -2,32 +2,55 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>
-    {% block title %}
-    {% endblock %}
-    </title>
     <meta charset="UTF-8">
-    <!--мета-тег HTML для контроля масштабирования и отображения веб-страницы на мобильных устройствах-->
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>
+        {% block title %}{% endblock %}
+    </title>
     <!-- Подключение Bootstrap CSS -->
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
-    <!-- Подлючение Сss стилей -->
+    <!-- Подключение CSS стилей -->
     <link rel="stylesheet" type="text/css" href="{% static 'css/styles.css' %}">
+
+    <script src="https://kit.fontawesome.com/3017dcaeeb.js" crossorigin="anonymous"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
+
+    <div class="title">
+        <a href={{home_page}}>
+            <img src={% static 'css/images/Title.png' %}> 
+        </a>
+    </div>
+
 </head>
 <body>
-    <div class="background1">
-        <!-- Общий контент или разметка -->
-        {% block img %}
-        {% endblock  %}
+    <div  class="background1">
+        {% block img %}{% endblock %}
     </div>
-    <div class="background2">
+    
+    <div class="text">
+        {% block text %}{% endblock %}
     </div>
-    <div class = "text">
-        {% block text %}
-        {% endblock  %}
+    
+    <div class="content">
+        {% block content %}{% endblock %}
     </div>
-    <div>
-        {% block content %}
-        {% endblock %}
+
+    <div class="blockcode">
+        <footer class="page-footer shadow bg-secondary">
+            <div class="d-flex flex-wrap justify-content-between align-items-center mx-auto py-4" style="width: 80%">
+                <div class="d-flex flex-wrap align-items-center">
+                    </a>
+                    <span style="font-size: 3em; margin: -2rem 0px -1.5rem 1rem; color: #c4c4c4;">&#8226;</span>
+                    <small class="ms-2 text-light">&copy; CactusJack, 2023. All rights reserved.</small>
+            </div>
+            <div>
+                <a href="https://open.spotify.com/user/zanatlsa7c5oxax873nml19s3?si=139aac332386426f"><img src="{% static 'css/images/spotify.png' %}" class = "icon"></a>
+                <a href="https://t.me/OneCactusJack"><img src="{% static 'css/images/telegram.png' %}" class = "icon"></a>
+                <a href="https://vk.com/iddinoco_photo"><img src="{% static 'css/images/vk.png' %}" class = "icon"></a>
+            </div>
+            </div>
+        </footer>
     </div>
-</body> 
+</body>
+</html>

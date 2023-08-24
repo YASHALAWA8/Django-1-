@@ -1,55 +1,79 @@
+.title {
+  overflow: hidden;
+  width: 200px;
+  height: 100px;
+  text-align: center;
+  padding: 20px;
+  position: relative;
+  bottom: 10;
+  width: 100%;
+  transition: 0.3s;
+}
+
+.title img {
+  max-width: 100%;
+  max-height: 100%;
+  object-fit: cover;
+}
+.title:hover {
+  filter: invert(60%);
+}
 /* Стиль начально картинки Cactus Jack */
 .profile {
   display: flex;
   align-items: center;
-  gap: 10px;
   font-family: "Arial", sans-serif;
 }
 
 .profile img {
-  width: 100px;
-  height: 100px;
+  width: 60px;
+  height: 60px;
   border-radius: 80%;
-  overflow: scroll;
-  margin-right: 0px;
-
+  overflow: hidden;
+  margin-right: 20px;
+  border: 0px solid black; /* Добавляем черную рамку */
 }
 /* Цвет текста OneCactusJack */
 :root {
-  --start-color: rgb(255, 111, 0);
-  --end-color: rgb(255, 255, 255);
-  --animation-duration: 5s;
+  --start-color: rgb(68, 0, 255);
+  --end-color: rgb(83, 229, 34);
+  --animation-duration: 3s;
 }
 
+/* Стили для блока профиля */
 .profile {
-  text-align: center;
-  padding: 0px;
-  position: relative;
+  text-align: left; /* Выравнивание текста влево */
+  padding: 0px; /* Отступы внутри блока */
+  position: relative; /* Позиционирование блока */
 }
 
+/* Стили для параграфа внутри блока профиля */
 .profile p {
-  font-size: 14px;
-  font-weight: bold;
-  margin-top: 15px;
-  color: var(--start-color);
-  animation: colorChange var(--animation-duration) infinite alternate;
-  position: relative; /* Уберите свойство top */
-  left: 1%;
-  z-index: 2;
+  font-size: 10px; /* Размер шрифта */
+  font-weight: bold; /* Жирность шрифта */
+  margin-top: 15px; /* Внешний отступ сверху */
+  font-family: "Disket Mono"; /* Шрифт */
+  color: var(--start-color); /* Цвет текста */
+  animation: colorChange var(--animation-duration) infinite alternate; /* Анимация цвета */
+  position: relative; /* Позиционирование текста */
+  left: 0%; /* Смещение текста влево */
+  z-index: 2; /* z-index для текста */
 }
 
+/* Стили для псевдоэлемента ::before параграфа */
 .profile p::before {
   content: ''; /* Добавляем контент для псевдоэлемента */
-  display: block;
-  width: 150px;
-  height: 80px;
-  background-image: url('https://o.remove.bg/downloads/e0a4b028-35ff-470f-8a72-90cb03d051c1/1670827812_grizly-club-p-mazok-kisti-png-24-removebg-preview.png');
-  background-size: cover;
-  position: absolute;
-  bottom: -20px; /* Установите отрицательное значение, чтобы изображение поднялось выше текста */
-  left: 50%; /* Центрируем изображение горизонтально */
-  transform: translateX(-50%); /* Центрируем изображение по горизонтали */
-  z-index: -1;
+  display: block; /* Блочный элемент */
+  width: 200px; /* Ширина изображения */
+  height: 100px; /* Высота изображения */
+  background-image: url('https://ie.wampi.ru/2023/08/12/brush-stroke-transparent-background-465374_preview_rev_1_clipdrop-background-removal.png'); /* Фоновое изображение */
+  background-size: cover; /* Растягивание изображения на весь блок */
+  position: absolute; /* Позиционирование псевдоэлемента */
+  bottom: -35px; /* Смещение изображения вверх */
+  left:-100%; /* Центрирование изображения горизонтально */
+  transform: translateX(-50%); /* Центрирование изображения по горизонтали */
+  z-index: -1; /* z-index для заднего фона */
+  transform: scale(0.7);
 }
 
 @keyframes colorChange {
@@ -62,11 +86,12 @@
 }
 /* Стиль названия статьи */
 h1 {
-  font-family: "Time New Roman", sans-serif;
+  font-family: "Pixeloid Sans", sans-serif;
   font-size: 14px;
   font-weight: bold;
-  color: rgb(0, 0, 0);
+  color: rgb(81, 81, 81);
   font-style: italic;
+  padding-left: 20px;
 }
 /* Стиль названия заголовка */
 pre {
@@ -77,24 +102,36 @@ pre {
 }
 
 /* Стиль основнго теста Full_text*/
-p {
-  font-family: "Time New Roman", sans-serif;
-  font-size: 14px;
+.text {
+  font-family: "Pixeloid Sans", sans-serif;
+  font-size: 13px;
   line-height: 1.5;
-  color: rgb(10, 10, 10);
+  color: rgb(255, 0, 0);
 }
 /* Цвет фона */
 body {
   margin: 0;
   padding: 0;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
 }
-.background1 {
-  background-image: url('https://i.ytimg.com/vi/0FVJA3RqOrE/maxresdefault.jpg?sqp=-oaymwEmCIAKENAF8quKqQMa8AEB-AH-CYAC0AWKAgwIABABGGIgZSgPMA8=&amp;rs=AOn4CLD2RRU56AmDNnS09LALsaHu-VdnMg');
-  height: 10.1vh;
-  background-position:center center;
-  background-size: cover;
+main {
+  flex: 1; /* Занимает доступное вертикальное пространство */
 }
-.background2{
- /* Масштабирование изображения для заполнения всего фона */
-  background-repeat: no-repeat; /* Запрет повторения изображения */
+/* Иконки в дне страницы */
+.icon {
+  width: 50px;
+  height:50px;
+  transform: scale(0.5);
+  display: inline-block;
+  transition: 0.1s;
+  box-sizing: border-box
+}
+.icon:hover {
+  filter: invert(90%);
+}
+.icon img {
+  max-width: 50%;
+  display: block;
 }
