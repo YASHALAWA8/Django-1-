@@ -12,3 +12,4 @@ django-ckeditor = "*"
 
 [requires]
 python_version = "3.11"
+awdaw
