@@ -15,41 +15,41 @@
     <script src="https://kit.fontawesome.com/3017dcaeeb.js" crossorigin="anonymous"></script>
 
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@docsearch/css@3">
-
-    <div class="title">
-        <a href={{home_page}}>
-            <img src={% static 'css/images/Title.png' %}> 
-        </a>
-    </div>
-
 </head>
-<body>
-    <div  class="background1">
-        {% block img %}{% endblock %}
-    </div>
-    
-    <div class="text">
-        {% block text %}{% endblock %}
-    </div>
-    
-    <div class="content">
-        {% block content %}{% endblock %}
-    </div>
 
-    <div class="blockcode">
-        <footer class="page-footer shadow bg-secondary">
-            <div class="d-flex flex-wrap justify-content-between align-items-center mx-auto py-4" style="width: 80%">
-                <div class="d-flex flex-wrap align-items-center">
-                    </a>
-                    <span style="font-size: 3em; margin: -2rem 0px -1.5rem 1rem; color: #c4c4c4;">&#8226;</span>
-                    <small class="ms-2 text-light">&copy; CactusJack, 2023. All rights reserved.</small>
+
+<body>
+    <div class = "wrapper">
+        <div class="title">
+            <a href={{home_page}}>
+                <img src={% static 'css/images/Title.png' %}> 
+            </a>
+        </div>
+        <div  class="background1">
+            {% block img %}{% endblock %}
+        </div>
+        <div class="content">
+            {% block text %}{% endblock %}
+        </div>
+        <footer class="footer" id="myFooter">
+            <div class="waves">
+                <div class="wave" id="wave1"></div>
+                <div class="wave" id="wave2"></div>
+                <div class="wave" id="wave3"></div>
+                <div class="wave" id="wave4"></div>
             </div>
-            <div>
-                <a href="https://open.spotify.com/user/zanatlsa7c5oxax873nml19s3?si=139aac332386426f"><img src="{% static 'css/images/spotify.png' %}" class = "icon"></a>
-                <a href="https://t.me/OneCactusJack"><img src="{% static 'css/images/telegram.png' %}" class = "icon"></a>
-                <a href="https://vk.com/iddinoco_photo"><img src="{% static 'css/images/vk.png' %}" class = "icon"></a>
-            </div>
-            </div>
+            <ul class="social-icon">
+                <li class="social-icon__item"><a class="social-icon__link" href="https://t.me/OneCactusJack">
+                    <img class= "imgs" src={% static 'css/images/telegram.png' %}> 
+                </a></li>
+                <li class="social-icon__item"><a class="social-icon__link" href="https://open.spotify.com/user/zanatlsa7c5oxax873nml19s3?si=cec0051f25c24c57">
+                    <img class= "imgs" src={% static 'css/images/spotify.png' %}> 
+                </a></li>
+                <li class="social-icon__item"><a class="social-icon__link" href="https://vk.com/iddinoco_photo">
+                    <img class= "imgs" src={% static 'css/images/vk.png' %}>
+                </a></li>     
+            </ul>
+            <date class = "li2">&copy;2023 CactusJack | Что с провами?</date>
         </footer>
     </div>
 </body>

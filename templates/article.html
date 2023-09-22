@@ -13,21 +13,10 @@
 {% endblock  %}
 
 {% block text %}
-    <div class="text">
+    <div class="content">
         {% for t in text %}
             <h1>{{ t.text|safe }}</h1>
         {% endfor %}
     </div>
 {% endblock %}
 
-{% block content %}
-    <div class="container">
-        {% for a in article %}
-            <div>
-                <h1>{{ a.title|safe }}</h1>
-                <p>{{ a.full_text|safe|linebreaks }}</p>
-                <p>Дата публикации: {{ a.pubdate|date:"d F Y в H:i" }}</p>
-            </div>
-        {% endfor %}
-    </div>
-{% endblock %}

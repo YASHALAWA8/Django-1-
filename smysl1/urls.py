@@ -17,7 +17,10 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from block import views
+from block.views import registration
+
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('', views.home_page),
+    path('user/registration/', registration),
 ]

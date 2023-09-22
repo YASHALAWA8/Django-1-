@@ -1,3 +1,13 @@
+* {
+	margin: 0;
+	padding: 0;
+}
+html,
+body,
+.wrapper {
+	height: 100%;
+}
+
 .title {
   overflow: hidden;
   width: 200px;
@@ -31,12 +41,11 @@
   border-radius: 80%;
   overflow: hidden;
   margin-right: 20px;
-  border: 0px solid black; /* Добавляем черную рамку */
 }
 /* Цвет текста OneCactusJack */
 :root {
-  --start-color: rgb(68, 0, 255);
-  --end-color: rgb(83, 229, 34);
+  --start-color: rgb(255, 255, 255);
+  --end-color: rgb(156, 73, 0);
   --animation-duration: 3s;
 }
 
@@ -102,11 +111,14 @@ pre {
 }
 
 /* Стиль основнго теста Full_text*/
-.text {
+.content {
   font-family: "Pixeloid Sans", sans-serif;
   font-size: 13px;
   line-height: 1.5;
   color: rgb(255, 0, 0);
+  box-sizing: border-box;
+	min-height: 74%;
+	padding-bottom: 10px;
 }
 /* Цвет фона */
 body {
@@ -115,6 +127,7 @@ body {
   display: flex;
   flex-direction: column;
   min-height: 100vh;
+  height: 100%;
 }
 main {
   flex: 1; /* Занимает доступное вертикальное пространство */
@@ -135,3 +148,151 @@ main {
   max-width: 50%;
   display: block;
 }
+.blockcode {
+	position: relative;
+	min-height: 100%;
+}
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+.footer#myFooter {
+  margin-top: 70px;
+}
+
+.footer {
+  position: relative;
+  width: 100%;
+  background: #555555;
+  min-height: 50px;
+  padding: 0px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+}
+
+.social-icon,
+.menu {
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px 0;
+  flex-wrap: wrap;
+}
+
+.social-icon__item,
+.menu__item {
+  list-style: none;
+}
+
+.social-icon__link {
+  font-size: 2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+}
+.social-icon__link:hover {
+  transform: translateY(-10px);
+}
+
+.menu__link {
+  font-size: 1.2rem;
+  color: #fff;
+  margin: 0 10px;
+  display: inline-block;
+  transition: 0.5s;
+  text-decoration: none;
+  opacity: 0.75;
+  font-weight: 300;
+}
+
+.menu__link:hover {
+  opacity: 1;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+  position: absolute;
+  left: 100px;
+  height: 110px;
+  margin-top: -80px;
+}
+
+.wave {
+  position: absolute;
+  top: -100px;
+  left: 0;
+  width: 100%;
+  height: 100px;
+  background: url("https://ic.wampi.ru/2023/08/28/wave.png");
+  background-size: 1000px 100px;
+}
+
+.wave#wave1 {
+  z-index: 1000;
+  opacity: 1;
+  bottom: 0;
+  animation: animateWaves 6s linear infinite;
+}
+
+.wave#wave2 {
+  z-index: 999;
+  opacity: 0.5;
+  bottom: 10px;
+  animation: animate 6s linear infinite !important;
+}
+
+.wave#wave3 {
+  z-index: 1000;
+  opacity: 0.2;
+  bottom: 15px;
+  animation: animateWaves 5s linear infinite;
+}
+
+.wave#wave4 {
+  z-index: 999;
+  opacity: 0.7;
+  bottom: 20px;
+  animation: animate 5s linear infinite;
+}
+
+@keyframes animateWaves {
+  0% {
+    background-position-x: 1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+
+@keyframes animate {
+  0% {
+    background-position-x: -1000px;
+  }
+  100% {
+    background-positon-x: 0px;
+  }
+}
+.imgs {
+  width: 28px;
+  height: 28px;
+}
+.li2 {
+  overflow: hidden;
+  text-align: center;
+  color: rgb(173, 210, 210);
+  left: 10px;
+  bottom: -0px;
+  font-size: 14px;
+  font-family: "Jura light", sans-serif;
+}
+
