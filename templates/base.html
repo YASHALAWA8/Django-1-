@@ -21,9 +21,18 @@
 <body>
     <div class = "wrapper">
         <div class="title">
-            <a href={{home_page}}>
+            <a href=http://127.0.0.1:8000>
                 <img src={% static 'css/images/Title.png' %}> 
             </a>
+        </div>
+        <div>
+            {% if user_is_authenticated %}
+            <!-- Кнопка логина -->
+            <a href="/login_user" class="btn btn-light">Logout</a>
+          {% else %}
+            <!-- Кнопка выхода -->
+            <a href="/login_user" class="btn btn-light">Login</a>
+          {% endif %}
         </div>
         <div  class="background1">
             {% block img %}{% endblock %}
@@ -49,7 +58,7 @@
                     <img class= "imgs" src={% static 'css/images/vk.png' %}>
                 </a></li>     
             </ul>
-            <date class = "li2">&copy;2023 CactusJack | Что с провами?</date>
+            <date class = "li2">&copy;  2023 CactusJack</date>
         </footer>
     </div>
 </body>

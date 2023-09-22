@@ -3,13 +3,19 @@ from django.http import HttpResponse, Http404
 from .models import OtherText
 from django.utils.safestring import mark_safe
 from django.contrib.auth.forms import UserCreationForm
-from django.contrib.auth import login, authenticate
+from django.contrib.auth import login, authenticate, logout
+from django.contrib import messages 
 from .models import Profile
 from .form import SignUpForm
 
 def home_page(request):
     text = OtherText.objects.all()
     return render(request, 'article.html', {'text':text})
+
+def login_user(request):
+    if request.method =="POST"
+        pass
+    return render(request, 'login.html', {})
 
 def registration(request):
     if request.method == 'POST':

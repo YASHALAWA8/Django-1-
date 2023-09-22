@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'block.apps.BlockConfig',
     'ckeditor',
     'crispy_forms',
+
 ]
 
 MIDDLEWARE = [
