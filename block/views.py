@@ -13,7 +13,7 @@ def home_page(request):
     return render(request, 'article.html', {'text':text})
 
 def login_user(request):
-    if request.method =="POST"
+    if request.method =="POST":
         pass
     return render(request, 'login.html', {})
 

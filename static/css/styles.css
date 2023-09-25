@@ -1,32 +1,21 @@
-* {
-	margin: 0;
-	padding: 0;
-}
-html,
-body,
-.wrapper {
-	height: 100%;
-}
 
+/* Цвет фона */
+body {
+  margin: 0;
+}
+main {
+  flex: 1; /* Занимает доступное вертикальное пространство */
+}
+/* Иконки в дне страницы */
 .title {
-  overflow: hidden;
-  width: 200px;
-  height: 100px;
-  text-align: center;
-  padding: 20px;
-  position: relative;
-  bottom: 10;
+  transform: scale(0.2);
   width: 100%;
-  transition: 0.3s;
+  height: 10px;
+  transition: 0.2s;
 }
 
-.title img {
-  max-width: 100%;
-  max-height: 100%;
-  object-fit: cover;
-}
 .title:hover {
-  filter: invert(60%);
+  filter: invert(80%);
 }
 /* Стиль начально картинки Cactus Jack */
 .profile {
@@ -114,25 +103,13 @@ pre {
 .content {
   font-family: "Pixeloid Sans", sans-serif;
   font-size: 13px;
+  flex-grow: 1;
   line-height: 1.5;
   color: rgb(0, 0, 0);
   box-sizing: border-box;
 	min-height: 74%;
 	padding-bottom: 10px;
 }
-/* Цвет фона */
-body {
-  margin: 0;
-  padding: 0;
-  display: flex;
-  flex-direction: column;
-  min-height: 100vh;
-  height: 100%;
-}
-main {
-  flex: 1; /* Занимает доступное вертикальное пространство */
-}
-/* Иконки в дне страницы */
 .icon {
   width: 50px;
   height:50px;
@@ -154,25 +131,30 @@ main {
 }
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@200;300;400;500;600;700;800;900&display=swap");
 
-* {
-  margin: 0;
-  padding: 0;
-  box-sizing: border-box;
-}
 .footer#myFooter {
-  margin-top: 70px;
+  margin-top: 50px;
 }
 
 .footer {
   position: relative;
-  width: 100%;
   background: #555555;
-  min-height: 50px;
-  padding: 0px;
+  min-height: 0px;
   display: flex;
   justify-content: center;
   align-items: center;
   flex-direction: column;
+  bottom: 0;
+}
+
+.footer p {
+  color: #fff;
+  margin: 15px 0 10px 0;
+  font-size: 1rem;
+  font-weight: 300;
+  position: absolute;
+  left: 100px;
+  height: 110px;
+  margin-top: -80px;
 }
 
 .social-icon,
@@ -214,17 +196,6 @@ main {
 
 .menu__link:hover {
   opacity: 1;
-}
-
-.footer p {
-  color: #fff;
-  margin: 15px 0 10px 0;
-  font-size: 1rem;
-  font-weight: 300;
-  position: absolute;
-  left: 100px;
-  height: 110px;
-  margin-top: -80px;
 }
 
 .wave {
