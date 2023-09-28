@@ -12,10 +12,27 @@ def home_page(request):
     text = OtherText.objects.all()
     return render(request, 'article.html', {'text':text})
 
+
+def logout_user(request):
+    logout(request)
+    messages1 = messages.success(request, 'Вы вышли из системы')
+    return redirect('home_page')
+
+
 def login_user(request):
-    if request.method =="POST":
-        pass
-    return render(request, 'login.html', {})
+    if request.method == "POST":
+        username = request.POST["username"]
+        password = request.POST["password"]
+        user = authenticate(request, username=username, password=password)
+        if user is not None:
+            login(request, user)
+            return redirect('/')
+        else:
+            messages.success(request, 'Неверное имя пользователя или пароль.')
+            return redirect('/login_user')
+    else:   
+        return render(request, 'login.html', {})
+
 
 def registration(request):
     if request.method == 'POST':

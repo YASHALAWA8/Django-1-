@@ -1,21 +1,71 @@
-
-/* Цвет фона */
+* {
+	margin: 0;
+	padding: 0;
+}
+html,
 body {
-  margin: 0;
+  height: 100%;
 }
-main {
-  flex: 1; /* Занимает доступное вертикальное пространство */
+.code {
+  min-height: 100%;
+  display: flex;
+  flex-direction: column;
 }
-/* Иконки в дне страницы */
+.form {
+  position: absolute;
+  width: 400px;
+  height: 50%;
+  top: 30%;
+  left: 39%;
+}
+/*Картинка  */
 .title {
+  position: absolute;
   transform: scale(0.2);
   width: 100%;
   height: 10px;
+  left: 5%;
+  top: 0%;
   transition: 0.2s;
 }
-
+@media (max-width: 950px) {
+  img {
+      max-width: 150%; /* Уменьшенная максимальная ширина для узких экранов */
+  }
+}
 .title:hover {
   filter: invert(80%);
+}
+.navbar {
+  height: 70px;
+  position: sticky;
+  top: 0%;
+  background-color: mistyrose;
+  margin-right: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+}
+ul {
+  position: relative;
+  left: 0%;
+  top: -10px;
+}
+.content {
+  font-family: "Pixeloid Sans", sans-serif;
+  font-size: 13px;
+  flex-grow: 1;
+  line-height: 1.5;
+  color: rgb(0, 0, 0);
+  box-sizing: border-box;
+  min-height: 100%;
+  margin: 20px;
+}
+
+.footer {
+  position: absolute;
+  background: #555555;
+  justify-content: center;
+  width: 100%;
+  height: 140px;  
 }
 /* Стиль начально картинки Cactus Jack */
 .profile {
@@ -88,7 +138,6 @@ h1 {
   font-size: 14px;
   font-weight: bold;
   color: rgb(81, 81, 81);
-  font-style: italic;
   padding-left: 20px;
 }
 /* Стиль названия заголовка */
@@ -100,16 +149,6 @@ pre {
 }
 
 /* Стиль основнго теста Full_text*/
-.content {
-  font-family: "Pixeloid Sans", sans-serif;
-  font-size: 13px;
-  flex-grow: 1;
-  line-height: 1.5;
-  color: rgb(0, 0, 0);
-  box-sizing: border-box;
-	min-height: 74%;
-	padding-bottom: 10px;
-}
 .icon {
   width: 50px;
   height:50px;
@@ -135,35 +174,12 @@ pre {
   margin-top: 50px;
 }
 
-.footer {
-  position: relative;
-  background: #555555;
-  min-height: 0px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  flex-direction: column;
-  bottom: 0;
-}
-
-.footer p {
-  color: #fff;
-  margin: 15px 0 10px 0;
-  font-size: 1rem;
-  font-weight: 300;
+.social-icon {
   position: absolute;
-  left: 100px;
-  height: 110px;
-  margin-top: -80px;
-}
-
-.social-icon,
-.menu {
-  position: relative;
   display: flex;
-  justify-content: center;
+  left: 45%;
+  top: 40%;
   align-items: center;
-  margin: 10px 0;
   flex-wrap: wrap;
 }
 
@@ -270,4 +286,10 @@ pre {
   background-color: white; /* Устанавливаем белый цвет фона формы */
   text-align: center; /* Выравниваем текст по центру */
   padding: 20px; /* Добавляем немного внутренних отступов для контента */
+}
+.nav-item {
+  font-family:sans-serif
+}
+.custom-link {
+  color: black;
 }
