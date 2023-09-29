@@ -25,21 +25,23 @@
                 </h1>
                 <h1 class="content">
                     <ul class="nav nav-underline justify-content-end">
+                        {% if user.is_authenticated %}
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" style="color: black" href="{% url 'logout' %}">Выход</a>
+                        </li>
+                        {% else %}
                         <li class="nav-item">
                             <a class="nav-link" href="/user/registration/" style="color: black">Регистрация</a>
                         </li>
-                        {% if user.is_authenticated %}
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" style="color: black" href="{% url 'logout' %}">Выход</a>
-                            </li>
-                        {% else %}
-                            <li class="nav-item">
-                                <a class="nav-link" aria-current="page" style="color: black" href="{% url 'login' %}">Вход</a>
+                        <li class="nav-item">
+                            <a class="nav-link" aria-current="page" style="color: black" href="{% url 'login' %}">Вход</a>
                         </li>
                         {% endif %}
                     </ul>
                 </h1>
             </div>
+            <div class="message">
+            <br>
             {% if messages %}
                 {% for message in messages %}
                     <div class="alert alert-warning alert-dismissible fade show" role="alert">
@@ -48,6 +50,7 @@
                     </div>
                 {% endfor %}
             {% endif %}
+            </div>
             <div  class="background1">
                 {% block img %}{% endblock %}
             </div>

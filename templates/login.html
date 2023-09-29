@@ -1,9 +1,13 @@
 {% extends 'base.html' %}
 {% load static %}
 
+{% block title %}
+    Вход
+{% endblock %}
+
 <body class="body_home">
   {% block text %}
-  <form action="" method="POST" class="form">
+  <form action="" method="POST" class="align-middle">
     {% csrf_token %}
     <div class="mb-3">
       <label for="exampleInputEmail1" class="col-form-label my-custom-label">Введите Login</label>

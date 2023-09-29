@@ -27,11 +27,7 @@ body {
   left: 5%;
   top: 0%;
   transition: 0.2s;
-}
-@media (max-width: 950px) {
-  img {
-      max-width: 150%; /* Уменьшенная максимальная ширина для узких экранов */
-  }
+  z-index:1;
 }
 .title:hover {
   filter: invert(80%);
@@ -40,14 +36,15 @@ body {
   height: 70px;
   position: sticky;
   top: 0%;
-  background-color: mistyrose;
+  background-color: rgba(151, 76, 23, 0.649);
   margin-right: 20px;
   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
+  z-index:1
 }
 ul {
   position: relative;
   left: 0%;
-  top: -10px;
+  top: 10px;
 }
 .content {
   font-family: "Pixeloid Sans", sans-serif;
@@ -55,9 +52,8 @@ ul {
   flex-grow: 1;
   line-height: 1.5;
   color: rgb(0, 0, 0);
-  box-sizing: border-box;
-  min-height: 100%;
-  margin: 20px;
+  margin-left: 20px;
+  margin-right: 20px;
 }
 
 .footer {
@@ -80,6 +76,7 @@ ul {
   border-radius: 80%;
   overflow: hidden;
   margin-right: 20px;
+  box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.5);
 }
 /* Цвет текста OneCactusJack */
 :root {
@@ -105,7 +102,6 @@ ul {
   animation: colorChange var(--animation-duration) infinite alternate; /* Анимация цвета */
   position: relative; /* Позиционирование текста */
   left: 0%; /* Смещение текста влево */
-  z-index: 2; /* z-index для текста */
 }
 
 /* Стили для псевдоэлемента ::before параграфа */
