@@ -17,7 +17,7 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from block import views
-from block.views import register_user, login_user, logout_user
+from block.views import register_user, login_user, logout_user, LikeView 
 
 urlpatterns = [
     path('admin/', admin.site.urls),
@@ -25,5 +25,5 @@ urlpatterns = [
     path('user/registration/', register_user, name='register'),
     path('login_user', login_user, name='login'),
     path('logout_user', logout_user, name='logout'),
-
+    path('like/<int:pk>',LikeView, name='like_post'),
 ]

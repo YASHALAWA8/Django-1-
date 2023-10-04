@@ -8,7 +8,9 @@ from django.contrib.auth.models import User
 
 class OtherText(models.Model):
     title = models.CharField(max_length=255, default='Unknown')
+    date_time = models.DateField(auto_now_add=True)
     text = RichTextField()
+    likes = models.ManyToManyField(User, related_name="blog_post")
 
     def __str__(self):
         return self.title

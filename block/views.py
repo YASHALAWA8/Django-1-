@@ -1,5 +1,5 @@
 from django.shortcuts import render , get_object_or_404, redirect
-from django.http import HttpResponse, Http404
+from django.http import HttpResponse, Http404, HttpResponseRedirect
 from .models import OtherText
 from django.utils.safestring import mark_safe
 from django.contrib.auth.forms import UserCreationForm
@@ -7,10 +7,18 @@ from django.contrib.auth import login, authenticate, logout
 from django.contrib import messages 
 from .models import Profile
 from .form import RegisterUserForm
+from django.urls import reverse
+
+
+def LikeView(request,pk):
+    post= get_object_or_404(OtherText, id=request.POST.get('post_id'))
+    post.like.add(request.user)
+    return HttpResponseRedirect(reverse('home_page', args=[str(pk)]))
 
 def home_page(request):
     text = OtherText.objects.all()
-    return render(request, 'article.html', {'text':text})
+    post = OtherText.objects.first()
+    return render(request, 'article.html', {'text':text, 'post':post})
 
 
 def logout_user(request):
