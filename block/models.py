@@ -10,7 +10,10 @@ class OtherText(models.Model):
     title = models.CharField(max_length=255, default='Unknown')
     date_time = models.DateField(auto_now_add=True)
     text = RichTextField()
-    likes = models.ManyToManyField(User, related_name="blog_post")
+    like = models.ManyToManyField(User, related_name="post_id")
+
+    def total_likes(self):
+        return self.likes.count()
 
     def __str__(self):
         return self.title

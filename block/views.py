@@ -1,24 +1,39 @@
 from django.shortcuts import render , get_object_or_404, redirect
-from django.http import HttpResponse, Http404, HttpResponseRedirect
+from django.http import HttpResponse, Http404, HttpResponseRedirect, JsonResponse
 from .models import OtherText
 from django.utils.safestring import mark_safe
 from django.contrib.auth.forms import UserCreationForm
 from django.contrib.auth import login, authenticate, logout
+from django.contrib.auth.decorators import login_required
 from django.contrib import messages 
 from .models import Profile
 from .form import RegisterUserForm
 from django.urls import reverse
 
 
-def LikeView(request,pk):
-    post= get_object_or_404(OtherText, id=request.POST.get('post_id'))
-    post.like.add(request.user)
-    return HttpResponseRedirect(reverse('home_page', args=[str(pk)]))
+
+def LikeView(request, pk):
+    post = get_object_or_404(OtherText, id=pk)
+    liked = False
+    if post.like.filter(id=request.user.id).exists():
+        post.like.remove(request.user)
+    else:
+        post.like.add(request.user)
+        liked = True
+    return HttpResponseRedirect(reverse('home_page'))
 
 def home_page(request):
     text = OtherText.objects.all()
     post = OtherText.objects.first()
-    return render(request, 'article.html', {'text':text, 'post':post})
+    
+    # Получение количества лайков для текущего поста
+    total_likes = post.like.count()
+
+    liked = False
+    if post.like.filter(id=request.user.id).exists():
+        liked = True
+
+    return render(request, 'article.html', {'text': text, 'post': post, 'total_likes': total_likes, 'liked': liked})
 
 
 def logout_user(request):

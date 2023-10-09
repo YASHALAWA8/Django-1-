@@ -1,6 +1,6 @@
 from django.urls import path
 from . import views
-from block.views import registration, LikeView
+from block.views import register_user, LikeView
 
 app_name = 'block'
 urlpatterns = [
