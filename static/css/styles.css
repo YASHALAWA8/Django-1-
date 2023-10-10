@@ -280,18 +280,20 @@ pre {
   padding: 20px; /* Добавляем немного внутренних отступов для контента */
 }
 
-.btn {
+.btn1 {
+  background: transparent;
+  border: none;
+  outline: none;
+  color: rgb(255, 0, 0);
+}
+.btn2 {
   background: transparent;
   border: none;
   outline: none;
   color: gray;
-
+}
+.likes {
+  margin-left: 20px;
 }
 
-.btn i:hover{
-  cursor: pointer;
-}
-.active{
-  color:red
-}
 

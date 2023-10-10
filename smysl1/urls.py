@@ -17,6 +17,8 @@ Including another URLconf
 from django.contrib import admin
 from django.urls import path, include
 from block import views
+from django.conf import settings
+from django.conf.urls.static import static
 from block.views import register_user, login_user, logout_user, LikeView 
 
 urlpatterns = [
@@ -27,3 +29,5 @@ urlpatterns = [
     path('logout_user', logout_user, name='logout'),
     path('like/<int:pk>',LikeView, name='like_post'),
 ]
+if settings.DEBUG:
+    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

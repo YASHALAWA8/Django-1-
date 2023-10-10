@@ -1,11 +1,9 @@
 {% extends 'base.html' %}
 {% load static %}
-<head>
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
-    <script src="{% static 'js/script.js' %}"></script>
-</head>
+    <script src="{% static 'css/js/script.js' %}"></script>
 {% block title %}
-    Сайт Андрея Пяткина
+    Сайтишка
 {% endblock %}
 
 {% block img %}
@@ -23,44 +21,19 @@
         {% endfor %}
     </div>
     <hr>
-    <form action="{% url 'like_post' post.pk %}" method="POST">
+    <form action="{% url 'like_post' post.pk %}" method="POST" class="likes">
         {% csrf_token %}
-        </svg>
-        <button type="hidden" name="post_id" value="{{ post.id }}" onclick="Toggle1()" id="btnh1" class="btn"><i class="fa-solid fa-heart"></i></i> </button>
-        <a id="btnh1">{{ total_likes }}</a>
+    {% if user.is_authenticated  %}
+        {% if liked %}
+            <button type="submit" name="post_id" value="{{ post.id }}" onclick="Toggle1()" id="btnh1" class="btn1"><i class="fa-solid fa-heart"></i></button>
+            <a id="btnh1">{{ total_likes }} like</a>
+        {% else %}
+            <button type="submit" name="post_id" value="{{ post.id }}" onclick="Toggle1()" id="btnh1" class="btn2"><i class="fa-solid fa-heart"></i></button>
+            <a id="btnh1">{{ total_likes }} like</a>
+        {% endif %}
+    {%  else %}
+        <small>Ввойдите в систему чтобы оценить </small>
+    {% endif %}
     </form>
-
-    <script>
-        $(document).ready(function () {
-            $("#like-form").submit(function (event) {
-                event.preventDefault(); // Отменить действие по умолчанию (отправку формы)
-    
-                var form = $(this);
-                var post_id = form.data("post-id");
-    
-                $.ajax({
-                    type: "POST",
-                    url: "{% url 'like_post' 0 %}".replace('0', post_id),
-                    data: {
-                        csrfmiddlewaretoken: "{{ csrf_token }}",
-                    },
-                    success: function (response) {
-                        if (response.success) {
-                            var totalLikes = response.total_likes;
-                            var liked = response.liked;
-    
-                            $("#total-likes").text(totalLikes);
-                            $("#btnh1 i.fa-heart").toggleClass("active", liked);
-                        } else {
-                            alert("Не удалось обновить лайк.");
-                        }
-                    },
-                    error: function () {
-                        alert("Произошла ошибка при отправке запроса.");
-                    },
-                });
-            });
-        });
-    </script>
 {% endblock %}
 
