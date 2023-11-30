@@ -15,25 +15,48 @@
 {% endblock  %}
 
 {% block text %}
-    <div class="content">
-        {% for t in text %}
-            <h1>{{ t.text|safe }}</h1>
-        {% endfor %}
-    </div>
-    <hr>
-    <form action="{% url 'like_post' post.pk %}" method="POST" class="likes">
-        {% csrf_token %}
-    {% if user.is_authenticated  %}
-        {% if liked %}
-            <button type="submit" name="post_id" value="{{ post.id }}" onclick="Toggle1()" id="btnh1" class="btn1"><i class="fa-solid fa-heart"></i></button>
-            <a id="btnh1">{{ total_likes }} like</a>
-        {% else %}
-            <button type="submit" name="post_id" value="{{ post.id }}" onclick="Toggle1()" id="btnh1" class="btn2"><i class="fa-solid fa-heart"></i></button>
-            <a id="btnh1">{{ total_likes }} like</a>
-        {% endif %}
-    {%  else %}
-        <small>Ввойдите в систему чтобы оценить </small>
+
+<div class="content">
+    {% for t in text %}
+    <h1>{{ t.text|safe }}</h1>
+    {% endfor %}
+</div>
+<hr>
+<form action="{% url 'like_post' post.pk %}" method="POST" class="likes">
+    {% csrf_token %}
+        {% if user.is_authenticated  %}
+            {% if liked %}
+                <button type="submit" name="post_id" value="{{ post.id }}" onclick="Toggle1()" id="btnh1" class="btn1"><i class="fa-solid fa-heart"></i></button>
+                <a id="btnh1">{{ total_likes }} like</a>
+            {% else %}
+                <button type="submit" name="post_id" value="{{ post.id }}" onclick="Toggle1()" id="btnh1" class="btn2"><i class="fa-solid fa-heart"></i></button>
+                <a id="btnh1">{{ total_likes }} like</a>
+            {% endif %}
+        {%  else %}
+            <small>Ввойдите в систему чтобы оценить </small>
     {% endif %}
-    </form>
+    <br>
+    <br>
+    <br>
+    <h2>Комментарии:</h2>
+    {% if not post.comments.all %}
+        Нет комментариев, добавьте их первыми! <a href="#">Добавить</a>
+    {% else %}
+    </br>
+    <a href="">Добавить комментарий</a>
+    </br></br>
+        {% for comment in post.comments.all %}
+        <hr>
+            <strong>
+                {{ comment.name }} - 
+                {{ comment.created_on }} - 
+            </strong>
+            <br>
+            {{ comment.body }}
+            <br></br>
+        {% endfor %}
+    {% endif %}
+    <br>
+</form>
 {% endblock %}
 
